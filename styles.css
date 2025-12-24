@@ -1,0 +1,99 @@
+:root{
+  --accent: #ff6a00;       /* نارنجي */
+  --bg: #ffffff;           /* پس‌زمینه روشن */
+  --card-bg: #ffffff;
+  --text: #111827;
+  --muted: #4b5563;
+  --btn-text: #ffffff;
+}
+
+[data-theme="dark"]{
+  --accent: #ff8a42;       /* کمی روشن‌تر برای حالت تاریک */
+  --bg: #0b1220;           /* پس‌زمینه تاریک */
+  --card-bg: #0f1724;
+  --text: #ffffff;
+  --muted: #cbd5e1;
+  --btn-text: #0b1220;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial}
+body{
+  background:var(--bg);
+  color:var(--text);
+  transition:background .25s ease, color .25s ease;
+  -webkit-font-smoothing:antialiased;
+  padding:20px;
+}
+
+/* header */
+.site-header{
+  display:flex;
+  gap:16px;
+  align-items:center;
+  justify-content:space-between;
+  max-width:900px;
+  margin:0 auto 24px;
+}
+.site-title{margin:0;font-size:1.25rem}
+
+/* toggle */
+.theme-toggle{
+  background:transparent;
+  border:2px solid var(--accent);
+  color:var(--accent);
+  padding:6px 10px;
+  border-radius:8px;
+  cursor:pointer;
+  font-size:1rem;
+  transition:background .15s ease, color .15s ease, border-color .15s ease;
+}
+.theme-toggle[aria-pressed="true"]{
+  background:var(--accent);
+  color:var(--btn-text);
+  border-color:transparent;
+}
+
+/* layout */
+.container{max-width:900px;margin:0 auto;display:grid;gap:20px}
+.card{
+  background:var(--card-bg);
+  border-radius:12px;
+  padding:20px;
+  box-shadow: 0 6px 20px rgba(2,6,23,0.08);
+  border:1px solid rgba(0,0,0,0.04);
+}
+.card h2{margin-top:0}
+.btn{
+  display:inline-block;
+  margin-top:12px;
+  background:var(--accent);
+  color:var(--btn-text);
+  padding:10px 14px;
+  border-radius:8px;
+  text-decoration:none;
+}
+
+/* panels */
+.panels{display:flex;gap:12px;flex-wrap:wrap}
+.panel{
+  flex:1 1 200px;
+  padding:16px;
+  border-radius:10px;
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));
+  border:1px solid rgba(255,255,255,0.03);
+}
+.white-panel{
+  background:var(--btn-text); /* در هر تم، سفید یا تیره */
+  color:var(--bg);
+  border:1px solid rgba(0,0,0,0.06);
+}
+
+/* footer */
+.site-footer{max-width:900px;margin:28px auto 0;color:var(--muted);text-align:center;font-size:.9rem}
+
+/* responsive */
+@media (max-width:520px){
+  .site-header{flex-direction:column;align-items:flex-start;gap:8px}
+  .panels{flex-direction:column}
+}
